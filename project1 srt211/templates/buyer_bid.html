@@ -1,0 +1,51 @@
+DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyer Bids</title>
+</head>
+{% if message %}
+    <p>{{ message }}</p>
+{% endif %}
+<body>
+    <!-- Table to display product details -->
+    <table id="bidtable" border="1">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Deadline</th>
+                <!-- <th>Bids</th> -->
+
+                <th>Purchased</th>
+                <th>Quantity</th>
+                
+                <th>Minimum Bid</th> <!-- New header for bid price -->
+                <th>Highest Bid</th> <!-- New header for highest bid -->
+                <th>Winning Bid</th> <!-- New column for winning bid -->
+                
+            </tr>
+        </thead>
+     
+                    {% for product in products %}
+                    <tr>
+                        <td>{{ product[2] }}</td> <!-- Name -->
+                        <td>{{ product[3] }}</td> <!-- Description -->
+                        <td>${{ product[4] }}</td> <!-- Price -->
+                        <td>{{ product[8] }}</td> <!-- Bidding Deadline -->
+                        <td>{{ product[9] }}</td> <!-- Purchased -->
+                        <td>{{ product[5] }}</td> <!-- Quantity -->
+                       
+                        <td>${{ product[7] }}</td> <!-- Assuming 7 is the index for bid price -->
+                        <td>${{ product[6] }}</td> <!-- Highest Bid -->
+                        <td>{{ "Yes" if product[7] == 1 else "No" }}</td> <!-- Winning Bid -->
+                         
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/buyer_page">View Your Bids</a>
+    </body>
+    </html>

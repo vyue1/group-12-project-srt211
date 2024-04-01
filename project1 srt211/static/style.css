@@ -1,0 +1,67 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
+    margin: 30px;
+    padding: 10px; 
+}
+
+h1 {
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+    width: 30%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+input[type="submit"] {
+    background-color: #3d93e4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Table styles */
+table {
+    margin: 0 auto; /* Automatically centers the table horizontally */
+    width: 90%; /* Adjust width as needed */
+    border-collapse: collapse;
+}
+
+/* Table header styles */
+th {
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Table row styles */
+tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+/* Table cell styles */
+td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}

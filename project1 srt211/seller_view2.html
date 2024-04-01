@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Products view</title>
+
+</head>
+{% if message %}
+    <p>{{ message }}</p>
+    {% endif %}
+<body>
+    <!-- Table to display product details -->
+    <table id="sellertable" border="1">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Deadline</th>
+                <!-- <th>Bids</th> -->
+                <th>Purchased</th>
+                <th>Quantity</th>
+                <th>Total Revenue</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iterate over products to display their details -->
+            {% for product in products %}
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ product.description }}</td>
+                <td>${{ product.price }}</td>
+                <td>{{ product.bidding_deadline }}</td>
+                <!-- <td>{{ product.bids }}</td> -->
+                <td>{{ product.purchased }}</td>
+                <td>{{ product.quantity }}</td>
+                <td>${{ product.total_revenue }}</td>
+                
+                    
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+</body>
+</html>

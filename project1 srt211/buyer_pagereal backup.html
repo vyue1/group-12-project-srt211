@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyer Product Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Available Products</h1>
+    <h1>Welcome, {{ session['username'] }}</h1> 
+     <!-- Table to display product details -->
+     <table id="sellertable" border="1">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Deadline</th>
+                <!-- <th>Bids</th> -->
+
+                <th>Purchased</th>
+                <th>Quantity</th>
+                
+                <th>Minimum Bid</th> <!-- New header for bid price -->
+                <th>Highest Bid</th> <!-- New header for highest bid -->
+                
+            </tr>
+        </thead>
+     <tbody>
+                    {% for product in products %}
+                    <tr>
+                        <td>{{ product[2] }}</td> <!-- Name -->
+                        <td>{{ product[3] }}</td> <!-- Description -->
+                        <td>${{ product[4] }}</td> <!-- Price -->
+                        <td>{{ product[8] }}</td> <!-- Bidding Deadline -->
+                        <td>{{ product[9] }}</td> <!-- Purchased -->
+                        <td>{{ product[5] }}</td> <!-- Quantity -->
+                       
+                        <td>${{ product[7] }}</td> <!-- Assuming 7 is the index for bid price -->
+                        <td>${{ product[10] }}</td> <!-- Highest Bid -->
+                         
+            
+            
+            <td>
+                <form method="post" action="/buyer_bid">
+                    <input type="hidden" name="product_id" value="{{ product[0] }}"> <!-- Assuming product[0] contains the product ID -->
+                    <input type="number" name="bid_amount" required>
+                    <input type="submit" value="Place Bid">
+                    <!-- Display error messages here -->
+                    {% if error %}
+                    <p>{{ error }}</p>
+                    {% endif %}
+                </form>
+                    
+                
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+    <a href="/view_bids">View Your Bids</a>
+    <a href="/buyer_account">View Account</a>
+    
+</body>
+</html>

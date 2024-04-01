@@ -1,0 +1,84 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    
+    background-color: rgb(250, 250, 250);
+    margin: 30px;
+    padding: 10px; 
+}
+
+
+
+table {
+    margin: 0 auto; /* Automatically centers the table horizontally */
+ } 
+
+
+
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+
+
+label {
+    text-align: center;
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+
+input[type="text"] {
+    
+    width: 30%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    
+    background-color: rgb(61, 147, 228);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Table styles */
+table {
+    width: 5%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    
+}
+
+/* Table header styles */
+th {
+    
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Table row styles */
+tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+/* Table cell styles */
+td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+

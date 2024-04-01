@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyer Product Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Available Products</h1>
+    <h2>Welcome, {{ session['username'] }}</h2> 
+    <table id="sellertable" border="1">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Bidding Deadline</th>
+                <th>Minimum Bid</th>
+                <th>Highest Bid</th>
+                <th>{{ session['username'] }}, Your Highest Bid</th> <!-- New column header for Buyer Highest Bid -->
+                <th>Purchased</th>
+                <th>Place Bid</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <td>{{ product[2] }}</td> <!-- Name -->
+                <td>{{ product[3] }}</td> <!-- Description -->
+
+                <td>${{ product[4] }}</td> <!-- Price -->
+                <td>{{ product[8] }}</td> <!-- Bidding Deadline -->
+                <td>${{ product[7] }}</td> <!-- Minimum Bid -->
+                <td>${{ product[10] }}</td> <!-- Highest Bid -->
+                <td>${{ product[12] }}</td> <!-- Buyer Highest Bid -->
+                <td>{{ product[9] }}</td> <!-- Purchased -->
+                
+
+                <td>
+                    <form method="post" action="/buyer_bid">
+                        <input type="hidden" name="product_id" value="{{ product[0] }}"> <!-- Product ID -->
+                        <input type="number" name="bid_price" required>
+                        <input type="submit" value="Place Bid">
+                        <!-- Display error messages here -->
+                        {% if error %}
+                        <p>{{ error }}</p>
+                        {% endif %}
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/view_bids">View Your Bids</a>
+    <a href="/buyer_account">View Account</a>
+</body>
+</html>

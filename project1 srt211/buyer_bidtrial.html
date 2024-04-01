@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyer Product Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Available Products</h1>
+    <h1>Welcome, {{ session['username'] }}</h1> 
+    <table id="sellertable" border="1">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Bidding Deadline</th>
+                <th>Minimum Bid</th>
+                <th>Highest Bid</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <td>{{ product[1] }}</td> <!-- Name -->
+                <td>{{ product[2] }}</td> <!-- Description -->
+                <td>${{ product[3] }}</td> <!-- Price -->
+                <td>{{ product[8] }}</td> <!-- Bidding Deadline -->
+                <td>${{ product[7] }}</td> <!-- Minimum Bid -->
+                <td>${{ product[10] }}</td> <!-- Highest Bid -->
+                <td>
+                    <form method="post" action="/buyer_bid">
+                        <input type="hidden" name="product_id" value="{{ product[0] }}"> <!-- Product ID -->
+                        <input type="number" name="bid_amount" required>
+                        <input type="submit" value="Place Bid">
+                        <!-- Display error messages here -->
+                        {% if error %}
+                        <p>{{ error }}</p>
+                        {% endif %}
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
