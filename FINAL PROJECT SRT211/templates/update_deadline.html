@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>insert_product</title>
+
+    <!-- jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- jQuery UI Datepicker CSS -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <!-- jQuery UI library -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+    <!-- Custom JavaScript to initialize the datepicker -->
+    <script>
+        $(function() {
+            // Initialize the datepicker for the #bidding_deadline input field
+            $("#bidding_deadline").datepicker({
+                dateFormat: "yy-mm-dd",  // Set the date format as desired
+                minDate: 0,  // Set the minimum selectable date to today
+                // You can add more options here as needed
+            });
+        });
+    </script>
+
+</head>
+<a href="/">Home</a><br>
+
+<a href="/seller_page">Back</a><br>
+
+<h1>Update Deadline</h1>
+<h1>Welcome, {{ session['username'] }}</h1>
+
+<body>
+   
+    <form method="POST" action="/update_deadline/{{ product_id }}">
+        <label for="bidding_deadline">Bidding Deadline:</label><br>
+        <input type="datetime-local" id="bidding_deadline" name="bidding_deadline" required><br>
+        <input type="submit" value="Update Deadline"><br>
+        <input type="hidden" id="product_id" name="product_id" value="{{ product[0] }}">
+        <label for = "description" >Description:<label></br>
+        <textarea id="description" name="description" rows="4" cols="50" ></textarea><br>
+        <label for ="price" >Price:</label><br>
+        <input type="text" id="price" name="price" ><br>
+        <!-- <label for ="Quantity" >Quantity:</label><br> -->
+        <!-- <input type="text" id="quantity" name="quantity" ><br>  -->
+        <label for ="name" >Name:</label><br>
+        <input type="text" id="name" name="name" ><br>
+        <label for ="min_bid" >Minimum Bid:</label><br>
+        <input type="text" id="min_bid" name="min_bid" ><br>
+        
+
+        <!-- <label for ="bidding_deadline" >Bidding Deadline:</label><br>
+        <input type="datetime-local" id="bidding_deadline" name="bidding_deadline" required><br> -->
+       
+    </form><br>
+
+    
+</body>
+</html>

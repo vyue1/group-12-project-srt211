@@ -1,0 +1,120 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa; /* Light gray background */
+    margin: 0;
+    padding: 0;
+    color: #333; /* Text color */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #555; /* Subdued heading color */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ced4da; /* Gray border */
+    border-radius: 5px;
+    box-sizing: border-box; /*  padding and border are included in width */
+}
+
+input[type="submit"],
+button,
+a.button {
+    background-color: #007bff; /* Blue button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline for links */
+}
+
+input[type="submit"]:hover,
+button:hover,
+a.button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+/* Table header styles */
+th {
+    background-color: #007bff; /* Blue header */
+    color: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Table row styles */
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Light gray alternating rows */
+}
+
+/* Table cell styles */
+td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Specific Page Styles */
+
+/* Seller Page */
+h1, h2 {
+    color: #007bff; /* Blue headings */
+}
+
+/* Login Page */
+form {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+/* User Sign Up Page */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Update User Information Page */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Update Product Page */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+}

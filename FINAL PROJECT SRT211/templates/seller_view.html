@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Products view</title>
+</head>
+{% if message %}
+    <p>{{ message }}</p>
+{% endif %}
+
+    <a href="/">Home</a><br>
+
+    <a href="/view_seller_account">View Account</a><br>
+    
+    <a href="/seller_page">Back</a><br>
+
+
+<h1>Seller Products</h1>
+<body>
+    <h1>Welcome, {{ session['username'] }}</h1> 
+    <!-- Table to display product details -->
+    <table id="sellertable" border="1">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Deadline</th>
+                <!-- <th>Bids</th> -->
+
+                
+                <!-- <th>Quantity</th> -->
+                
+                <th>Minimum Bid</th> <!-- New header for bid price -->
+                <th>Highest Bid</th> <!-- New header for highest bid -->
+                <th>Sold</th>
+                <th>Total Revenue</th>
+                <th>Update Product</th>
+
+                <th>Resell Product</th>
+                
+            </tr>
+        </thead>
+     
+                    {% for product in products %}
+                    <tr>
+                        <td>{{ product[2] }}</td> <!-- Name -->
+                        <td>{{ product[3] }}</td> <!-- Description -->
+                        <td>${{ product[4] }}</td> <!-- Price -->
+                        <td>{{ product[8] }}</td> <!-- Bidding Deadline -->
+                        
+                        <!-- <td>{{ product[5] }}</td> Quantity -->
+                       
+                        <td>${{ product[7] }}</td> <!-- Assuming 7 is the index for bid price -->
+                        <td>${{ product[10] }}</td> <!-- Highest Bid -->
+                        <td>{{ product[9] }}</td> <!-- Purchased -->
+                        <td>${{ product[6] }}</td> <!-- Total Revenue -->
+                        <td><a href="/update_product/{{ product[0] }}">Update</a></td> <!-- Update link -->
+
+                        <td>
+                            {% if product[8] < current_datetime and product[9] == 'no' and product[10] == 0 %}
+                                <a href="/update_deadline/{{ product[0] }}">Resell</a>
+                            {% endif %}
+                        </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    
+
+    </body>
+    </html>
+

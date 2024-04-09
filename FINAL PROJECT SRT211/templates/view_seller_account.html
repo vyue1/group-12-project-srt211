@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Seller Account</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <a href="/">Home</a><br>
+    <a href="/seller_page">Back</a>
+   
+    <h1>Seller Account Details</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+        <tr>
+            <td>{{ seller[1] }}</td> <!-- Index 1 for username -->
+            <td>{{ seller[2] }}</td> <!-- Index 2 for email -->
+            <td>
+                <a href="/update_seller_account/{{ seller[0] }}">Update</a> <!-- Index 0 for id -->
+                <a href="/delete_seller/{{ seller[0] }}">Delete</a> <!-- Index 0 for id -->
+            </td>
+        </tr>
+    </table><br>
+     
+</body>
+</html>

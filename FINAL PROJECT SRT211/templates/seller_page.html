@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Page</title>
+</head>
+<body><a href="/">Home</a><br>
+    
+    <!-- Link to insert product -->
+    <a href="/insert_product">Insert Product</a><br>
+    
+    <!-- Link to view products -->
+    <a href="/view_products">View Products</a><br>
+
+    <a href="/view_seller_account">View Account</a><br>
+    <h1>Seller Page</h1>
+    <h2>Welcome, {{ session['username'] }}</h2> 
+    
+    
+</a><br>
+    
+    <!-- Table to display product details -->
+    <table>
+        {% if message %}
+    <p>{{ message }}</p>
+    {% endif %}
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Deadline</th>
+                <th>Bids</th>
+                <th>Sold</th>
+                <!-- <th>Quantity</th> -->
+                <th>Total Revenue</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iterate over products to display their details -->
+            {% for product in products %}
+            <!-- <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ product.description }}</td>
+                <td>${{ product.price }}</td>
+                <td>${{ product.highest_bid }}</td> Display the highest bid
+                <!-- <td>{{ product.deadline }}</td>
+                <td>{{ product.bids }}</td>
+                <td>{{ product.purchases }}</td> -->
+                <!-- <td>{{ product.quantity }}</td> -->
+                <!-- <td>${{ product.total_revenue }}</td> -->
+            <!-- </tr> --> 
+            {% endfor %}
+        </tbody>
+
+    </table>
+</body>
+
+</html>
